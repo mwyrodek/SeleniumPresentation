@@ -8,12 +8,12 @@ using OpenQA.Selenium.Chrome;
 namespace ConseleniumPresentation
 {
     [TestFixture]
-    public class Tests
+    public class LocatorTestIterationOne
     {
         private int iteration = 1000;
 
         [Test]
-        public void SimpleTest()
+        public void POC()
         {
             var path = System.IO.Path.GetDirectoryName( 
                 System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
