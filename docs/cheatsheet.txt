@@ -1,0 +1,25 @@
+logs 
+C:\workspace\git\ConseleniumPresentation\ConseleniumPresentation\bin\Debug\results.txt
+
+
+Remote webdriver with logs
+
+cd C:\workspace\git\ConseleniumPresentation\ConseleniumPresentation\drivers
+chromedriver.exe --verbose --log-path=chromedriver.log
+
+logs 
+C:\workspace\git\ConseleniumPresentation\ConseleniumPresentation\drivers
+
+address: http://localhost:9515
+
+
+WebDriver bidning
+RemoteWebDriver
+FindElement  (432)
+By (127)
+FindElementById  (558)
+
+
+
+chromedriver
+element_util.cc  300

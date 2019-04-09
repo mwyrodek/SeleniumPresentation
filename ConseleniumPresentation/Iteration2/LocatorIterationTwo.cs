@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using NLog;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -12,6 +13,7 @@ namespace ConseleniumPresentation
     {
         private int iteration = 1000;
         private IWebDriver driver;
+        private Logger logger;
 
         [SetUp]
         public void Setup()
@@ -21,6 +23,7 @@ namespace ConseleniumPresentation
             path = path.Substring(6);
             driver = new ChromeDriver($"{path}\\drivers");
             driver.Navigate().GoToUrl($"{path}\\fakewebsite\\simplecase.html");
+            logger = NLog.LogManager.GetCurrentClassLogger();
         }
         
         [Test]
@@ -88,10 +91,10 @@ namespace ConseleniumPresentation
             var min = resultsList.Min();
             var average = resultsList.Average();
             
-            Console.WriteLine("----------AllTime is In Millisecodns-------------------------");
-            Console.WriteLine($"LocatorTypeUsed {@by}   Value {locatorUsed}");
-            Console.WriteLine($"Samples {iteration} Avergere {average}  Min {min}  Max {max}");
-            Console.WriteLine("-----------------------------------");
+            logger.Info("----------AllTime is In Millisecodns-------------------------");
+            logger.Info($"LocatorTypeUsed {@by}   Value {locatorUsed}");
+            logger.Info($"Samples {iteration} Average {average}  Min {min}  Max {max}");
+            logger.Info("-----------------------------------");
             for (var i = 0; i < iteration; i+=10)
             {
                 var row = string.Empty;
@@ -99,9 +102,9 @@ namespace ConseleniumPresentation
                 {
                     row +=$"{resultsList[i+j]} |";
                 }
-                Console.WriteLine($"ROw {i}|  {row}");
+                logger.Info($"Row {i}|  {row}");
             }
-            Console.WriteLine("-----------------------------------");
+            logger.Info("-----------------------------------");
         }
 
         [TearDown]
@@ -109,10 +112,5 @@ namespace ConseleniumPresentation
         {
             driver.Quit();            
         }
-//todo  more complex html scructure 
-//why is first one longer???
-//other browsers
-//
-
     }
 }

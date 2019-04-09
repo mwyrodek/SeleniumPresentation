@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "36f0bb40-4017-4f46-8916-1deea1522b40",
+		"name": "WebDriver",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Session",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"desiredCapabilities\": {\r\n        \"caps\": {\r\n            \"nativeEvents\": false,\r\n            \"browserName\": \"chrome\",\r\n            \"version\": \"\",\r\n            \"platform\": \"ANY\"\r\n        }\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9515/session",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9515",
+					"path": [
+						"session"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GoToPage",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"url\":\"C:/workspace/git/ConseleniumPresentation/ConseleniumPresentation/fakewebsite/simplecase.html\"}"
+				},
+				"url": {
+					"raw": "http://localhost:9515/session/d182f5f05d6e9ce572acaf3eb9b8f0ae/url",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9515",
+					"path": [
+						"session",
+						"d182f5f05d6e9ce572acaf3eb9b8f0ae",
+						"url"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindElement",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"using\":\"id\",\"value\":\"buttonID\"}"
+				},
+				"url": {
+					"raw": "http://localhost:9515/session/d182f5f05d6e9ce572acaf3eb9b8f0ae/element",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9515",
+					"path": [
+						"session",
+						"d182f5f05d6e9ce572acaf3eb9b8f0ae",
+						"element"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetElementText",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9515/session/d182f5f05d6e9ce572acaf3eb9b8f0ae/element/0.6143375826238571-1/text",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9515",
+					"path": [
+						"session",
+						"d182f5f05d6e9ce572acaf3eb9b8f0ae",
+						"element",
+						"0.6143375826238571-1",
+						"text"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CloseSession",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9515/session/d182f5f05d6e9ce572acaf3eb9b8f0ae",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9515",
+					"path": [
+						"session",
+						"d182f5f05d6e9ce572acaf3eb9b8f0ae"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
