@@ -42,7 +42,7 @@ namespace ConseleniumPresentation
         {
             var locator = "button";
             var classNameLocator = By.ClassName(locator);
-
+            
             var measuredTime = MeasureTime(classNameLocator);
 
             PrintResults(measuredTime, "class", locator);
@@ -70,6 +70,28 @@ namespace ConseleniumPresentation
             PrintResults(measuredTime, "Xpath", locator);
         }
 
+        [Test]
+        public void TimeByLinkText()
+        {
+            var locator = "Click me";
+            var linkText = By.LinkText(locator);
+
+            var measuredTime = MeasureTime(linkText);
+
+            PrintResults(measuredTime, "Link Text", locator);
+        }
+
+        [Test]
+        public void TimeByPartialLinkText()
+        {
+            var locator = "me";
+            var linkText = By.PartialLinkText(locator);
+
+            var measuredTime = MeasureTime(linkText);
+
+            PrintResults(measuredTime, "Partial Link Text", locator);
+        }
+
         private List<long> MeasureTime(By locator)
         {
             var resultsList = new List<long>();
@@ -90,7 +112,7 @@ namespace ConseleniumPresentation
             var max = resultsList.Max();
             var min = resultsList.Min();
             var average = resultsList.Average();
-            
+            Console.WriteLine($"Locator {by}  averge time is {average}");
             logger.Info("----------AllTime is In Millisecodns-------------------------");
             logger.Info($"LocatorTypeUsed {@by}   Value {locatorUsed}");
             logger.Info($"Samples {iteration} Average {average}  Min {min}  Max {max}");

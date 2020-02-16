@@ -84,6 +84,28 @@ namespace ConseleniumPresentation
             return resultsList;
         }
 
+        [Test]
+        public void TimeByLinkText()
+        {
+            var locator = "Click me";
+            var linkText = By.LinkText(locator);
+
+            var measuredTime = MeasureTime(linkText);
+
+            PrintResults(measuredTime, "Link Text", locator);
+        }
+
+        [Test]
+        public void TimeByPartialLinkText()
+        {
+            var locator = "me";
+            var linkText = By.PartialLinkText(locator);
+
+            var measuredTime = MeasureTime(linkText);
+
+            PrintResults(measuredTime, "Link Text", locator);
+        }
+
         private void PrintResults(List<long> resultsList, string @by, string locatorUsed)
         {
             
