@@ -69,6 +69,17 @@ namespace ConseleniumPresentation
 
             PrintResults(measuredTime, "Xpath", locator);
         }
+        
+        [Test]
+        public void TimeByTag()
+        {
+            var locator = "a";
+            var tagLocator = By.TagName(locator);
+
+            var measuredTime = MeasureTime(tagLocator);
+
+            PrintResults(measuredTime, "Xpath", locator);
+        }
 
         [Test]
         public void TimeByLinkText()
@@ -90,6 +101,19 @@ namespace ConseleniumPresentation
             var measuredTime = MeasureTime(linkText);
 
             PrintResults(measuredTime, "Partial Link Text", locator);
+        }
+        
+        [TestCase(1,1,2)]
+        public void Calc_Add(int firstNumber, int secondNumber, int expectedResult)
+        {
+            int actualResult = firstNumber + secondNumber;
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+        
+        [TestCase(1,1, ExpectedResult = 2)]
+        public int Calc_Add(int firstNumber, int secondNumber)
+        {
+            return firstNumber + secondNumber;
         }
 
         private List<long> MeasureTime(By locator)
