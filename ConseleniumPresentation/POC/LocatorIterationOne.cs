@@ -79,10 +79,10 @@ namespace ConseleniumPresentation
             for (var i = 0; i < iteration; i++)
             {
                 var watch = System.Diagnostics.Stopwatch.StartNew();
-                driver.Navigate().Refresh();
                 driver.FindElement(locator);
                 watch.Stop();
                 resultsList.Add(watch.ElapsedMilliseconds);
+                driver.Navigate().Refresh();
             }
 
             return resultsList;
